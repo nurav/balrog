@@ -377,6 +377,7 @@ class AUSTable(object):
         if where:
             for cond in where:
                 query = query.where(cond)
+        print(query)
         return query
 
     def _prepareUpdate(self, trans, where, what, changed_by, old_data_version):
@@ -1023,7 +1024,7 @@ class Releases(AUSTable):
         what = {}
         if read_only:
             what['read_only'] = read_only
-            import pdb; pdb.set_trace()
+            print("%s %s %s %s" %(type(name), type(changed_by), type(old_data_version), type(read_only)))
         if product:
             what['product'] = product
         if blob:
